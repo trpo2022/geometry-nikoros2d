@@ -1,2 +1,2 @@
 all:
-	gcc -Wall -o mainvvod vvod.c
+	gcc -Wall -Werror -o mainvvod vvod.c
