@@ -1,4 +1,8 @@
 *.o
 *.d
 *.a
-bin/geometry
+bin/main.c
+obj/src/libmake/functions.o
+obj/src/libmake/libmake.a
+obj/src/main/main.o
+
