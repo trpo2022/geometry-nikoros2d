@@ -1,8 +1,18 @@
 CFLAGS = -Wall -Wextra -Werror
+CCFLAGS = -Wall -Wextra -Wconversion -Wredundant-decls -Wshadow -Wno-unused-parameter
 
 all: main
 
 main: bin/main
+
+testmain.o: test/testmain.c
+	gcc -c $(CCFLAGS) -o $@ $< -lm
+
+main_test.o: test/main_test.c
+	gcc -c $(CCFLAGS) -o $@ $< -lm
+
+test: testmain.o main_test.o
+	gcc $(LDFLAGS) testmain.o main_test.o -o tests -lm 
 
 bin/main: obj/src/main/main.o obj/src/libmake/libmake.a
 	gcc $(CFLAGS) -o $@ $^ -lm

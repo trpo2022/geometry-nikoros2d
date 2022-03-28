@@ -2,9 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-//#include "hfunclib/thevvod.h"
-//#include "hfunclib/calccircle.h"
-//#include "hfunclib/calctriangle.h"
+
 #include "libmake/functions.h"
 
 #define pi 3.14
