@@ -14,11 +14,17 @@ jobs:
 
 	- name: Build application
 	run: make test
+
+	- name: Build application
+	run: make test2
 	
 	- name: run app
 	run: ./bin/main
 
 	- name: run test
 	run: ./bin/tests
+
+	- name: run test
+	run: ./bin/tests2
 
 
