@@ -1,7 +1,16 @@
 CFLAGS = -Wall -Wextra -Werror
-CCFLAGS = -Wall -Wextra -Wconversion -Wredundant-decls -Wshadow -Wno-unused-parameter
+CCFLAGS = -Wall -Wextra -Wshadow -Wno-unused-parameter
 
 all: bin/main
+
+obj/src/main/testmain2.o: test/testmain2.c
+	gcc -c $(CCFLAGS) -o $@ $< -lm
+
+obj/src/main/main_test2.o: test/main_test2.c
+	gcc -c $(CCFLAGS) -o $@ $< -lm
+
+test2: obj/src/main/testmain2.o obj/src/main/main_test2.o
+	gcc $(LDLAGS) -o $@ $^ -lm -o bin/tests2 
 
 obj/src/main/testmain.o: test/testmain.c
 	gcc -c $(CCFLAGS) -o $@ $< -lm

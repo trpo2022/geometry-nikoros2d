@@ -2,10 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-
 #include "libmake/functions.h"
-
-#define pi 3.14
 
 int main()
 {
