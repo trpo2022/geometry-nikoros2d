@@ -1,0 +1,30 @@
+name: Build
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build application
+        run: make
+
+      - name: Build application
+        run: make test
+
+      - name: Build application
+        run: make test2
+
+      - name: run app
+        run: ./bin/main
+
+      - name: run test
+        run: ./bin/tests
+
+      - name: run test
+        run: ./bin/tests2
+
+
