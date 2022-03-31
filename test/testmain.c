@@ -2,38 +2,29 @@
 #include <stdlib.h>
 #include <math.h>
 #include "../thirdparty/ctest.h"
-#define pi 3.14
+#include "../src/libmake/functions.c"
 
-CTEST(suite_geometry, test_circle) {
-  int i = 0, j, t=0;
-  const int exp = 1;
-  int number1[10], pointx[5][5], pointy[5][5];
-  double perimetr[5], ploshad[5],k;
-  number1[i] = 100;
-  pointx[0][i] = 1;
-  pointy[0][i] = 2;
-  i = 1;
-  number1[i] = 5;
-  pointx[0][i] = 16;
-  pointy[0][i] = 34;
-  perimetr[i] = (pi * 2 * number1[i]);
-  if(round(10*perimetr[i])==314)t=1;
-  ASSERT_EQUAL(exp,t);
-  t=0;
-  ploshad[i] = number1[i] * number1[i] * pi;
-  if(ploshad[i]==78.5)t=1;
-  ASSERT_EQUAL(exp, t);
-  if (i > 0) {
-    for (j = i - 1; j > -1; j--) {
-      k = sqrt(pow((pointx[0][i] - pointx[0][j]), 2) + pow((pointy[0][i] - pointy[0][j]), 2));
-      if (k < (number1[i] + number1[j])) {
-        printf("\nThis object intersects with object #%d", j);
-        t = 1;
-      }
-    }
-    if (t == 0) {
-      printf("\nThis object does not intersect any other");
-      printf("ERROR #5");
-    }
-  }
+CTEST(suite_geometry, test_perimetr) {
+  int i = 0;
+  const int exp = 62;
+  float number1[10];
+  float perimetr[5];
+  number1[i] = 10;
+  perimetrcir(perimetr,i,number1);
+  ASSERT_EQUAL(exp,perimetr[i]);
 }
+CTEST(suite_geometry, test_perecechenie) {
+  int i = 1;
+  const int exp = 0;
+  float number1[10];
+  float pointx[5][6], pointy[5][6];int k[5][6];
+  pointx[0][0]=1;
+  pointx[0][1]=1;
+  pointy[0][0]=3;
+  pointy[0][1]=4;
+  number1[1] = 1;
+  number1[0] = 1;
+  perececheniecie(i,pointx,pointy,k,number1);
+  ASSERT_EQUAL(exp,k[0][1]);
+}
+
